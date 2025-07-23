@@ -3,7 +3,8 @@
 Simulasi plugin WordPress untuk sistem reservasi layanan pariwisata berbasis **Ethereum Smart Contract (Testnet only)**.  
 Plugin ini dirancang sebagai bagian dari inisiatif digitalisasi pariwisata lokal menggunakan pendekatan desentralisasi.
 
-![WordPress Plugin Status](https://img.shields.io/wordpress/plugin/status/smartwisatachain)
+[Plugin SmartWisataChain (Status: In Review)](https://wordpress.org/plugins/smartwisatachain/)
+
 [![Plugin on WordPress.org](https://img.shields.io/badge/Plugin%20Directory-SmartWisataChain-blue)](https://wordpress.org/plugins/smartwisatachain/)
 
 ---
