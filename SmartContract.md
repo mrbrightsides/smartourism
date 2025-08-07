@@ -61,4 +61,4 @@ This contract handles on-chain reservation records, binding token usage to real 
 
 ---
 
-Generated on 2025-08-07 by STC Dev Team
+Generated on 2025-08-07 by ELPEEF Dev Team
