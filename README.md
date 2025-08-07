@@ -1,74 +1,78 @@
-# SmartTourismChain
+# SmartTourismChain – Smart Contract Backend
 
-Simulasi plugin WordPress untuk sistem reservasi layanan pariTourism berbasis **Ethereum Smart Contract (Testnet only)**.  
-Plugin ini dirancang sebagai bagian dari inisiatif digitalisasi pariTourism lokal menggunakan pendekatan desentralisasi.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16763407.svg)](https://doi.org/10.5281/zenodo.16763407)
 
-[Plugin SmartTourismChain (Status: In Review)](https://wordpress.org/plugins/smarttourismchain/)
-
-[![Plugin on WordPress.org](https://img.shields.io/badge/Plugin%20Directory-SmartTourismChain-blue)](https://wordpress.org/plugins/smarttourismchain/)
-
----
-
-## 🔗 Fitur Utama Plugin
-- Integrasi MetaMask untuk verifikasi pengguna
-- Form pemesanan langsung tercatat on-chain
-- Kompatibel dengan WordPress 6.5+
-- Lightweight, tidak mengganggu performa website
-- Tersedia demo simulasi di: [smartourism.elpeef.com](https://smartourism.elpeef.com)
+Repositori ini berisi dua smart contract utama untuk simulasi sistem reservasi layanan pariwisata berbasis blockchain.  
+Seluruh kontrak ditulis dalam bahasa **Solidity v0.8.x** dan diuji pada jaringan **Ethereum Sepolia Testnet**.  
+Kontrak ini dikembangkan sebagai backend untuk berbagai eksperimen desentralisasi dalam sektor pariwisata digital.
 
 ---
 
-## 💡 Use Case
-Plugin ini dibuat untuk **simulasi pendidikan** dan **eksperimen riset**, terutama:
-- Sistem reservasi wisata tanpa pihak ketiga
-- Representasi identitas pengguna menggunakan wallet address
-- Otomatisasi proses pencatatan reservasi langsung ke smart contract
+## 📦 Daftar Smart Contract
+
+1. **SmartTourismToken.sol**  
+   Kontrak ERC-20 standar untuk token `STT` (Smart Tourism Token).  
+   Token ini digunakan sebagai media transaksi dalam sistem reservasi.
+
+2. **SmartReservation.sol**  
+   Kontrak untuk mencatat data reservasi wisata secara _on-chain_.  
+   Mendukung fungsi pemesanan dan pelacakan histori reservasi per wallet address.
 
 ---
 
-## 🔐 Backend Smart Contract (ERC-20 Token + Booking)
+## 🧪 Lingkungan Uji
 
-Smart contract ERC-20 untuk prototipe sistem pemesanan layanan pariTourism.
-
----
-
-### 🔧 Fitur Smart Contract:
-- Penerbitan token `STT` menggunakan standar ERC20
-- Fungsi `recordBooking()` untuk mencatat data booking (nama & tanggal)
-- Fungsi `getMyBookings()` untuk menampilkan data booking per wallet
-- Data bersifat transparan dan immutable di blockchain
+- Bahasa: **Solidity v0.8.x**
+- Testnet: **Ethereum Sepolia**
+- Tools: Remix IDE, MetaMask, OpenZeppelin
+- Opsional: Hardhat & Ganache untuk pengujian lanjutan
 
 ---
 
-### 📄 Catatan Tambahan
-Plugin ini masih dalam tahap awal (alpha version) dan hanya berfungsi di jaringan testnet.
-Harap tidak digunakan untuk transaksi komersial sampai lulus evaluasi resmi dan pengujian penuh.
+## 🔧 Fitur Kontrak
+
+### 🪙 SmartTourismToken.sol
+- Implementasi ERC-20 menggunakan library OpenZeppelin
+- Penamaan token: `Smart Tourism Token (STT)`
+- Fungsi dasar: transfer, approve, mint, dsb.
+
+### 📝 SmartReservation.sol
+- `recordBooking(nama, tanggal)` untuk mencatat reservasi baru
+- `getMyBookings()` untuk melihat seluruh histori reservasi pengguna
+- Data disimpan dalam array `Booking[]` berdasarkan wallet `msg.sender`
+- Terintegrasi dengan token `STT` sebagai prasyarat transaksi
 
 ---
 
-### 🙌 Kontribusi dan Kontak
-Proyek ini merupakan bagian dari riset disertasi dan pengembangan ekosistem blockchain lokal untuk sektor pariwisata.
-Silakan buat pull request atau hubungi khudri.elpeef.com untuk kolaborasi.
+## 🎯 Tujuan dan Use Case
+Eksperimen pencatatan reservasi digital tanpa database terpusat
+
+Otomatisasi transaksi wisata berbasis token
+
+Edukasi dan simulasi blockchain tourism untuk keperluan riset dan pengajaran
 
 ---
 
-### 🧪 Lingkungan Uji:
-Solidity v0.8.x
+## ⚠️ Catatan Penting
+Kontrak ini hanya digunakan pada jaringan testnet (Sepolia).
 
-Jaringan: Ethereum Sepolia Testnet
+Belum direkomendasikan untuk penggunaan komersial.
 
-Tools: Remix IDE, MetaMask, OpenZeppelin, Hardhat (opsional untuk dev lanjutan)
+Lisensi: MIT License
 
 ---
 
-### 🔗 Contoh Interaksi:
-Deploy SmartTourismToken.sol
+## 👨‍💻 Pengembang dan Kontributor
+Akhmad Khudri (@ELPEEF)
+Proyek ini merupakan bagian dari riset disertasi dan pengembangan sistem digital pariwisata berbasis blockchain.
 
-Transfer token ke user
+---
 
-Deploy SmartReservation.sol dan hubungkan dengan address token
+## 📩 Untuk kolaborasi atau pertanyaan teknis, kunjungi: khudri.elpeef.com
 
-User memesan dengan memanggil fungsi bookReservation() dan mengirimkan detail reservasi + token
+---
+
+## 🔗 Contoh Kode
 
 ```solidity
 struct Booking {
